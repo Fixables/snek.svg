@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260" role="img" aria-label="Andy Setiawan header">
+  <defs>
+    <!-- Clip that reveals left-to-right -->
+    <clipPath id="wipe">
+      <rect id="wipeRect" x="0" y="0" width="0" height="260">
+        <!-- Scene 1: 0s to 2s -->
+        <animate attributeName="width" from="0" to="1200" dur="2s" begin="0s" fill="freeze" />
+        <!-- Scene 2: reset then wipe again -->
+        <animate attributeName="width" from="0" to="1200" dur="2s" begin="2s" fill="freeze" />
+        <!-- Scene 3: reset then wipe again -->
+        <animate attributeName="width" from="0" to="1200" dur="2s" begin="4s" fill="freeze" />
+      </rect>
+    </clipPath>
+
+    <!-- Background gradients -->
+    <linearGradient id="baliSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffedd5"/>
+      <stop offset="55%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#93c5fd"/>
+    </linearGradient>
+
+    <linearGradient id="baliSea" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+
+    <linearGradient id="pcbBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#0b1220"/>
+    </linearGradient>
+
+    <linearGradient id="rockiesSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="55%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#93c5fd"/>
+    </linearGradient>
+
+    <!-- Soft glow filter for PCB traces -->
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Flower symbol (simple frangipani / bunga jepun vibe) -->
+    <g id="jepun">
+      <circle cx="0" cy="0" r="7" fill="#fff7ed" opacity="0.95"/>
+      <g fill="#ffe4e6" opacity="0.95">
+        <ellipse cx="0" cy="-10" rx="6.5" ry="10"/>
+        <ellipse cx="9" cy="-3" rx="6.5" ry="10" transform="rotate(72 9 -3)"/>
+        <ellipse cx="6" cy="8" rx="6.5" ry="10" transform="rotate(144 6 8)"/>
+        <ellipse cx="-6" cy="8" rx="6.5" ry="10" transform="rotate(216 -6 8)"/>
+        <ellipse cx="-9" cy="-3" rx="6.5" ry="10" transform="rotate(288 -9 -3)"/>
+      </g>
+      <circle cx="0" cy="0" r="2.6" fill="#f59e0b"/>
+    </g>
+
+    <!-- Common text style -->
+    <style>
+      .name { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; font-weight: 800; letter-spacing: 1px; }
+      .tag  { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; font-weight: 500; opacity: 0.92; }
+    </style>
+  </defs>
+
+  <!-- Rounded banner background -->
+  <rect x="0" y="0" width="1200" height="260" rx="22" ry="22" fill="#0b1220"/>
+
+  <!-- Scene 1: Bali -->
+  <g opacity="1">
+    <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.333;0.334;1" dur="6s" repeatCount="indefinite"/>
+    <g clip-path="url(#wipe)">
+      <rect x="0" y="0" width="1200" height="260" fill="url(#baliSky)"/>
+      <rect x="0" y="140" width="1200" height="120" fill="url(#baliSea)"/>
+
+      <!-- Ombak waves -->
+      <path d="M0,165 C120,145 220,195 340,175 C470,150 560,200 700,175 C860,140 980,205 1200,170 L1200,260 L0,260 Z"
+            fill="#ffffff" opacity="0.20"/>
+      <path d="M0,185 C140,165 250,220 380,195 C520,165 610,230 760,200 C920,165 1040,230 1200,195"
+            fill="none" stroke="#ffffff" stroke-width="3" opacity="0.22"/>
+      <path d="M0,205 C160,190 270,240 410,215 C560,190 650,250 820,220 C980,190 1080,245 1200,220"
+            fill="none" stroke="#ffffff" stroke-width="2" opacity="0.18"/>
+
+      <!-- Flowers drifting left to right -->
+      <g opacity="0.9">
+        <use href="#jepun" x="90"  y="70">
+          <animateTransform attributeName="transform" type="translate" from="-140 0" to="1340 0" dur="6s" repeatCount="indefinite"/>
+          <animateTransform attributeName="transform" additive="sum" type="rotate" from="0 90 70" to="360 90 70" dur="6s" repeatCount="indefinite"/>
+        </use>
+        <use href="#jepun" x="220" y="110" transform="scale(0.85)">
+          <animateTransform attributeName="transform" type="translate" from="-220 0" to="1420 0" dur="6s" begin="0.4s" repeatCount="indefinite"/>
+          <animateTransform attributeName="transform" additive="sum" type="rotate" from="0 220 110" to="-260 220 110" dur="6s" begin="0.4s" repeatCount="indefinite"/>
+        </use>
+        <use href="#jepun" x="420" y="55" transform="scale(0.7)">
+          <animateTransform attributeName="transform" type="translate" from="-420 0" to="1620 0" dur="6s" begin="0.8s" repeatCount="indefinite"/>
+          <animateTransform attributeName="transform" additive="sum" type="rotate" from="0 420 55" to="300 420 55" dur="6s" begin="0.8s" repeatCount="indefinite"/>
+        </use>
+      </g>
+
+      <!-- Name appears -->
+      <text x="64" y="112" font-size="52" class="name" fill="#0b1220" opacity="0">
+        Andy Setiawan
+        <animate attributeName="opacity" from="0" to="1" dur="0.9s" begin="0.4s" fill="freeze"/>
+      </text>
+      <text x="66" y="144" font-size="18" class="tag" fill="#0b1220" opacity="0">
+        From Bali • Electronics • PCB Design • Control Systems • Robotics
+        <animate attributeName="opacity" from="0" to="1" dur="0.9s" begin="0.75s" fill="freeze"/>
+      </text>
+    </g>
+  </g>
+
+  <!-- Scene 2: Futuristic PCB -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.333;0.334;0.666;0.667;1" dur="6s" repeatCount="indefinite"/>
+    <g clip-path="url(#wipe)">
+      <rect x="0" y="0" width="1200" height="260" fill="url(#pcbBg)"/>
+      <g filter="url(#glow)" opacity="0.9">
+        <path d="M40 60 H260 V110 H520 V70 H760 V150 H1040" fill="none" stroke="#22c55e" stroke-width="3"/>
+        <path d="M80 210 H300 V170 H560 V205 H820 V95 H1120" fill="none" stroke="#38bdf8" stroke-width="3"/>
+        <path d="M180 40 V120 H360 V60 H620 V140 H860" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
+        <path d="M520 230 V160 H710 V210 H980 V60" fill="none" stroke="#f97316" stroke-width="2.5"/>
+        <!-- Pads -->
+        <g opacity="0.95">
+          <circle cx="260" cy="110" r="7" fill="#22c55e"/>
+          <circle cx="520" cy="110" r="7" fill="#22c55e"/>
+          <circle cx="760" cy="150" r="7" fill="#22c55e"/>
+          <circle cx="300" cy="170" r="7" fill="#38bdf8"/>
+          <circle cx="560" cy="205" r="7" fill="#38bdf8"/>
+          <circle cx="820" cy="95" r="7" fill="#38bdf8"/>
+          <circle cx="360" cy="60" r="6" fill="#a78bfa"/>
+          <circle cx="620" cy="140" r="6" fill="#a78bfa"/>
+          <circle cx="710" cy="210" r="6" fill="#f97316"/>
+        </g>
+      </g>
+
+      <text x="64" y="120" font-size="52" class="name" fill="#e2e8f0" opacity="0.96">Andy Setiawan</text>
+      <text x="66" y="152" font-size="18" class="tag" fill="#cbd5e1">Embedded • PCB • Controls • Robotics • Testing</text>
+    </g>
+  </g>
+
+  <!-- Scene 3: Canadian Rockies -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;0;0;1;1" keyTimes="0;0.666;0.667;0.999;1;1" dur="6s" repeatCount="indefinite"/>
+    <g clip-path="url(#wipe)">
+      <rect x="0" y="0" width="1200" height="260" fill="url(#rockiesSky)"/>
+
+      <!-- Mountain layers -->
+      <path d="M0 210 L140 120 L260 170 L380 95 L520 170 L650 110 L780 190 L920 130 L1060 200 L1200 150 L1200 260 L0 260 Z"
+            fill="#0b132b" opacity="0.95"/>
+      <path d="M0 240 L160 170 L290 210 L430 150 L570 220 L740 160 L890 230 L1040 175 L1200 225 L1200 260 L0 260 Z"
+            fill="#0a1020" opacity="0.95"/>
+
+      <!-- Snow caps -->
+      <path d="M140 120 L170 150 L200 135 L230 170 L260 170 L220 145 L200 155 L180 135 Z" fill="#e2e8f0" opacity="0.9"/>
+      <path d="M380 95 L405 125 L430 110 L455 150 L480 130 L450 120 L430 135 L410 115 Z" fill="#e2e8f0" opacity="0.9"/>
+      <path d="M650 110 L680 140 L705 125 L730 160 L760 140 L725 130 L705 145 L685 125 Z" fill="#e2e8f0" opacity="0.9"/>
+
+      <text x="64" y="112" font-size="52" class="name" fill="#e2e8f0" opacity="0.96">Andy Setiawan</text>
+      <text x="66" y="144" font-size="18" class="tag" fill="#cbd5e1">UBC Electrical Engineering • Curious builder • Loves hiking</text>
+    </g>
+  </g>
+</svg>
